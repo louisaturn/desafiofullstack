@@ -1,0 +1,17 @@
+.header {
+    justify-content: center;
+    height: 10%;
+}
+
+h1,h2,h3{
+    font-weight: 500;
+}
+
+span{
+    display: flex;
+    align-items: center;
+}
+
+img{
+    height: 3.5rem
+}

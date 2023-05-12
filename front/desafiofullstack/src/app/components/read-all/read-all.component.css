@@ -1,0 +1,9 @@
+.nova-empresa{
+    margin-top: 1cm;
+}
+
+h1, .nova-empresa, .content{
+    margin-top: 1cm;
+    margin-left: 2%;
+    font-weight: 500
+}
