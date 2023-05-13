@@ -1,6 +1,7 @@
 package com.louise.desafiofullstack.resources;
 
 import com.louise.desafiofullstack.domain.Empresa;
+import com.louise.desafiofullstack.domain.Fornecedor;
 import com.louise.desafiofullstack.service.EmpresaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -49,4 +50,11 @@ public class EmpresaResource {
         return ResponseEntity.ok().body(newEmpresa);
     }
 
+    @PutMapping(value= "/novofornecedor/{cnpj}")
+    public ResponseEntity<Empresa> newFornecedor(@PathVariable long cnpj, @RequestBody Fornecedor fornecedor) {
+        Empresa empresa = service.findById(cnpj);
+        empresa.getFornecedores().add(fornecedor);
+        service.update(cnpj, empresa);
+        return ResponseEntity.ok().body(empresa);
+    }
 }

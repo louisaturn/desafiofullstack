@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 @Service
-public class EmpresaService implements Serializable {
+public class EmpresaService {
 
     @Autowired
     private EmpresaRepository repository;
@@ -39,6 +39,7 @@ public class EmpresaService implements Serializable {
 
         newEmpresa.setCep(empresa.getCep());
         newEmpresa.setNomeFantasia(empresa.getNomeFantasia());
+        newEmpresa.setFornecedores(empresa.getFornecedores());
 
         return repository.save(newEmpresa);
     }

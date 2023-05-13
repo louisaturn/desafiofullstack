@@ -2,8 +2,6 @@ package com.louise.desafiofullstack.service;
 
 import com.louise.desafiofullstack.domain.Empresa;
 import com.louise.desafiofullstack.domain.Fornecedor;
-import com.louise.desafiofullstack.domain.EmpresaFornecedor;
-import com.louise.desafiofullstack.repositories.EmpresaFornecedorRepository;
 import com.louise.desafiofullstack.repositories.EmpresaRepository;
 import com.louise.desafiofullstack.repositories.FornecedorRepository;
 
@@ -19,8 +17,6 @@ public class DBService {
     private EmpresaRepository empresaRepository;
     @Autowired
     private FornecedorRepository fornecedorRepository;
-    @Autowired
-    private EmpresaFornecedorRepository empresaFornecedorRepository;
 
     public void instanciaBasedeDados(){
 
@@ -29,5 +25,8 @@ public class DBService {
 
         empresaRepository.saveAll(Arrays.asList(accenture));
         fornecedorRepository.saveAll(Arrays.asList(louise));
+
+        accenture.getFornecedores().add(louise);
+        empresaRepository.saveAll(Arrays.asList((accenture)));
     }
 }

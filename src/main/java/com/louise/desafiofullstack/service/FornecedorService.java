@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class FornecedorService implements Serializable {
+public class FornecedorService {
 
     @Autowired
     private FornecedorRepository repository;

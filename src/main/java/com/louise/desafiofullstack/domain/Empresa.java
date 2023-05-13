@@ -3,6 +3,7 @@ package com.louise.desafiofullstack.domain;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -15,7 +16,7 @@ public class Empresa {
 
     @ManyToMany
     @JoinTable(
-        name = "empresa",
+        name = "empresa_fornecedor",
         joinColumns = @JoinColumn(name = "cnpj"),
         inverseJoinColumns = @JoinColumn(name = "cnpjOuCpf"))
     Set<Fornecedor> fornecedores;
@@ -30,6 +31,7 @@ public class Empresa {
         this.cnpj = cnpj;
         this.nomeFantasia = nomeFantasia;
         this.cep = cep;
+        this.fornecedores = new HashSet<Fornecedor>();
     }
 
     public long getCnpj() {
@@ -54,6 +56,14 @@ public class Empresa {
 
     public void setCep(Integer cep) {
         this.cep = cep;
+    }
+
+    public Set<Fornecedor> getFornecedores() {
+        return fornecedores;
+    }
+
+    public void setFornecedores(Set<Fornecedor> fornecedores) {
+        this.fornecedores = fornecedores;
     }
 
     @Override
