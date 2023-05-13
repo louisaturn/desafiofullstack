@@ -18,9 +18,8 @@ import { CreateComponent } from './components/create/create.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { UpdateComponent } from './components/update/update.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import {MatTabsModule} from '@angular/material/tabs';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [

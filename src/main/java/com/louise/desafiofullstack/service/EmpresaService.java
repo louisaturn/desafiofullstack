@@ -6,16 +6,16 @@ import com.louise.desafiofullstack.service.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
-
 @Service
-public class EmpresaService {
+public class EmpresaService implements Serializable {
 
     @Autowired
     private EmpresaRepository repository;
 
-    public Empresa findById(Integer cnpj) {
+    public Empresa findById(long cnpj) {
         Optional<Empresa> obj = repository.findById(cnpj);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! CNPJ: " + cnpj));
     }
@@ -29,11 +29,11 @@ public class EmpresaService {
         return repository.save(empresa);
     }
 
-    public void delete(Integer cnpj) {
+    public void delete(long cnpj) {
         repository.deleteById(cnpj);
     }
 
-    public Empresa update(Integer cnpj, Empresa empresa) {
+    public Empresa update(long cnpj, Empresa empresa) {
 
         Empresa newEmpresa = findById(cnpj);
 

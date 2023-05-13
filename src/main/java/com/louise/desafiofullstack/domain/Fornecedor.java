@@ -1,30 +1,28 @@
 package com.louise.desafiofullstack.domain;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-import java.util.Date;
+import java.util.Set;
 
 @Entity
+@EntityScan
 public class Fornecedor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String cnpjOuCpf;
+    private long cnpjOuCpf;
+    @ManyToMany(mappedBy = "fornecedores")
+    Set<Empresa> empresas;
     private String nome;
     private String email;
     private Integer cep;
     private Integer rg;
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private Date dataNascimento;
+    private String dataNascimento;
 
     public Fornecedor(){
         super();
     }
 
-    public Fornecedor(String cnpjOuCpf, String nome, String email, Integer cep, Integer rg, Date dataNascimento) {
+    public Fornecedor(long cnpjOuCpf, String nome, String email, Integer cep, Integer rg, String dataNascimento) {
         this.cnpjOuCpf = cnpjOuCpf;
         this.nome = nome;
         this.email = email;
@@ -34,11 +32,11 @@ public class Fornecedor {
     }
 
 
-    public String getCnpjOuCpf() {
+    public long getCnpjOuCpf() {
         return cnpjOuCpf;
     }
 
-    public void setCnpjOuCpf(String cnpjOuCpf) {
+    public void setCnpjOuCpf(long cnpjOuCpf) {
         this.cnpjOuCpf = cnpjOuCpf;
     }
 
@@ -74,11 +72,12 @@ public class Fornecedor {
         this.rg = rg;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 }
+

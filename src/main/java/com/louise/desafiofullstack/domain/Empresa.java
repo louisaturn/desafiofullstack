@@ -1,36 +1,42 @@
 package com.louise.desafiofullstack.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
-public class Empresa implements Serializable {
+public class Empresa {
 
     private static final long serialVersionUID = 1L;
     @Id
-    private String cnpj;
+    private long cnpj;
+
+    @ManyToMany
+    @JoinTable(
+        name = "empresa",
+        joinColumns = @JoinColumn(name = "cnpj"),
+        inverseJoinColumns = @JoinColumn(name = "cnpjOuCpf"))
+    Set<Fornecedor> fornecedores;
     private String nomeFantasia;
     private Integer cep;
 
     public Empresa(){
         super();
     }
-    public Empresa(String cnpj, String nomeFantasia, Integer cep) {
+    public Empresa(long cnpj, String nomeFantasia, Integer cep) {
         super();
         this.cnpj = cnpj;
         this.nomeFantasia = nomeFantasia;
         this.cep = cep;
     }
 
-    public String getCnpj() {
+    public long getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(String cnpj) {
+    public void setCnpj(long cnpj) {
         this.cnpj = cnpj;
     }
 
