@@ -16,8 +16,9 @@ Linguagem Typescript, utilizando a tecnologia Angular. Foram utilizados componen
 ## Como Executar
 ### Dependências (Links para instalá-las)
 - [Java SE 20](https://www.oracle.com/java/technologies/javase/jdk20-archive-downloads.html)
-- [Node.js 18.16]([https://www.npmjs.com/package/npm](https://nodejs.org/en/download))
+- [Node.js 18.16](https://nodejs.org/en/download)
 - [Angular](https://angular.io/guide/setup-local)
+- [Maven](https://maven.apache.org/install.html)
 ### Execução
 1. Ir para o diretório base e executar o comando:
 `java -jar desafiofullstack.jar `. A aplicação será executada, por padrão, em `http://localhost:8080/`. 
