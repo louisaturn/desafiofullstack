@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.louise</groupId>
 	<artifactId>desafiofullstack</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>desafiofullstack</name>
 	<description>Desafio Full Stack para Accenture</description>
 	<properties>
