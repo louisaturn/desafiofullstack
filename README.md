@@ -21,7 +21,7 @@ Linguagem Typescript, utilizando a tecnologia Angular. Foram utilizados componen
 - [Maven](https://maven.apache.org/install.html)
 ### Execução
 1. Ir para o diretório base e executar o comando: `mvn package`
-2. Executar: `java -jar target/desafiofullstack-0.0.1`
+2. Executar: `java -jar target/desafiofullstack-0.0.1.jar`
 - A aplicação será executada, por padrão, em `http://localhost:8080/`. 
 - Para acessar as empresas existentes cadastradas e todas as suas propriedades, acesse `http://localhost:8080/empresas`. 
 - Para fornecedores, `http://localhost:8080/fornecedores`.
