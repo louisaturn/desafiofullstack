@@ -20,7 +20,7 @@ public class EmpresaResource {
     private EmpresaService service;
 
     @GetMapping(value = "/{cnpj}")
-    public ResponseEntity<Empresa> findById(@PathVariable long cnpj) {
+    public ResponseEntity<Empresa> findById(@PathVariable String cnpj) {
         Empresa obj = service.findById(cnpj);
         return ResponseEntity.ok().body(obj);
     }
@@ -39,19 +39,19 @@ public class EmpresaResource {
     }
 
     @DeleteMapping(value = "/{cnpj}")
-    public ResponseEntity<Void> delete(@PathVariable long cnpj) {
+    public ResponseEntity<Void> delete(@PathVariable String cnpj) {
         service.delete(cnpj);
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping(value = "/{cnpj}")
-    public ResponseEntity<Empresa> update(@PathVariable long cnpj, @RequestBody Empresa empresa){
+    public ResponseEntity<Empresa> update(@PathVariable String cnpj, @RequestBody Empresa empresa){
         Empresa newEmpresa = service.update(cnpj, empresa);
         return ResponseEntity.ok().body(newEmpresa);
     }
 
     @PutMapping(value= "/novofornecedor/{cnpj}")
-    public ResponseEntity<Empresa> newFornecedor(@PathVariable long cnpj, @RequestBody Fornecedor fornecedor) {
+    public ResponseEntity<Empresa> newFornecedor(@PathVariable String cnpj, @RequestBody Fornecedor fornecedor) {
         Empresa empresa = service.findById(cnpj);
         empresa.getFornecedores().add(fornecedor);
         service.update(cnpj, empresa);

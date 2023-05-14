@@ -19,7 +19,7 @@ public class FornecedorResources {
         private FornecedorService service;
 
         @GetMapping(value = "/{cnpjOuCpf}")
-        public ResponseEntity<Fornecedor> findById(@PathVariable Integer cnpjOuCpf) {
+        public ResponseEntity<Fornecedor> findById(@PathVariable String cnpjOuCpf) {
             Fornecedor obj = service.findById(cnpjOuCpf);
             return ResponseEntity.ok().body(obj);
         }
@@ -38,13 +38,13 @@ public class FornecedorResources {
         }
 
         @DeleteMapping(value = "/{cnpjOuCpf}")
-        public ResponseEntity<Void> delete(@PathVariable Integer cnpjOuCpf) {
+        public ResponseEntity<Void> delete(@PathVariable String cnpjOuCpf) {
             service.delete(cnpjOuCpf);
             return ResponseEntity.noContent().build();
         }
 
         @PutMapping(value = "/{cnpjOuCpf}")
-        public ResponseEntity<Fornecedor> update(@PathVariable long cnpjOuCpf, @RequestBody Fornecedor fornecedor){
+        public ResponseEntity<Fornecedor> update(@PathVariable String cnpjOuCpf, @RequestBody Fornecedor fornecedor){
             Fornecedor newFornecedor = service.update(cnpjOuCpf, fornecedor);
             return ResponseEntity.ok().body(newFornecedor);
         }

@@ -20,6 +20,10 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { UpdateComponent } from './components/update/update.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MainComponent } from './components/main/main.component';
+import { UpdatefornecedoresComponent } from './components/updatefornecedores/updatefornecedores.component';
+import { CreatefornecedoresComponent } from './components/createfornecedores/createfornecedores.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     ReadAllComponent,
     CreateComponent,
     UpdateComponent,
+    MainComponent,
+    UpdatefornecedoresComponent,
+    CreatefornecedoresComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +51,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,7 +9,7 @@ import java.util.Set;
 public class Fornecedor {
 
     @Id
-    private long cnpjOuCpf;
+    private String cnpjOuCpf;
     @ManyToMany(mappedBy = "fornecedores")
     Set<Empresa> empresas;
     private String nome;
@@ -22,7 +22,7 @@ public class Fornecedor {
         super();
     }
 
-    public Fornecedor(long cnpjOuCpf, String nome, String email, Integer cep, Integer rg, String dataNascimento) {
+    public Fornecedor(String cnpjOuCpf, String nome, String email, Integer cep, Integer rg, String dataNascimento) {
         this.cnpjOuCpf = cnpjOuCpf;
         this.nome = nome;
         this.email = email;
@@ -32,11 +32,11 @@ public class Fornecedor {
     }
 
 
-    public long getCnpjOuCpf() {
+    public String getCnpjOuCpf() {
         return cnpjOuCpf;
     }
 
-    public void setCnpjOuCpf(long cnpjOuCpf) {
+    public void setCnpjOuCpf(String cnpjOuCpf) {
         this.cnpjOuCpf = cnpjOuCpf;
     }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Empresa } from '../read-all/models/empresas';
 import { EmpresasService } from 'src/app/services/empresas.ts.service';
 
@@ -10,21 +10,24 @@ import { EmpresasService } from 'src/app/services/empresas.ts.service';
 })
 export class CreateComponent implements OnInit {
 
+  entidade: String = "";
+
   empresa: Empresa = {
     nomeFantasia: '',
     cnpj: '',
-    cep: ''
+    cep: '',
+    fornecedores: []
   }
 
-  constructor(private router: Router, private service: EmpresasService) {
+  constructor(private route: ActivatedRoute,private router:Router, private service: EmpresasService) {
 
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
   }
 
   create(): void {
-    this.service.create(this.empresa).subscribe((resposta) => {
+    this.service.create("empresas", this.empresa).subscribe((resposta) => {
       this.service.message('Empresa criada com sucesso');
       this.router.navigate(['']);
     }, err => {

@@ -16,7 +16,7 @@ public class FornecedorService {
     @Autowired
     private FornecedorRepository repository;
 
-    public Fornecedor findById(long cnpjOuCpf) {
+    public Fornecedor findById(String cnpjOuCpf) {
         Optional<Fornecedor> obj = repository.findById(cnpjOuCpf);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! ID: " + cnpjOuCpf));
     }
@@ -30,11 +30,11 @@ public class FornecedorService {
         return repository.save(fornecedor);
     }
 
-    public void delete(long cnpjOuCpf) {
+    public void delete(String cnpjOuCpf) {
         repository.deleteById(cnpjOuCpf);
     }
 
-    public Fornecedor update(long cnpjOuCpf, Fornecedor fornecedor) {
+    public Fornecedor update(String cnpjOuCpf, Fornecedor fornecedor) {
 
         Fornecedor newFornecedor = findById(cnpjOuCpf);
 

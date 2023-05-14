@@ -3,19 +3,30 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReadAllComponent } from './components/read-all/read-all.component';
 import { CreateComponent } from './components/create/create.component';
 import { UpdateComponent } from './components/update/update.component';
+import { MainComponent } from './components/main/main.component';
+import { UpdatefornecedoresComponent } from './components/updatefornecedores/updatefornecedores.component';
+import { CreatefornecedoresComponent } from './components/createfornecedores/createfornecedores.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ReadAllComponent
+    component: MainComponent
   },
   {
-    path: 'create/create',
+    path: 'empresas/create',
     component: CreateComponent
   },
   {
-    path: 'update/:cnpj',
+    path: 'fornecedores/create',
+    component: CreatefornecedoresComponent
+  },
+  {
+    path: 'empresas/update/:identificador',
     component: UpdateComponent
+  },
+  {
+    path: 'fornecedores/update/:identificador',
+    component: UpdatefornecedoresComponent
   }
 
 ];

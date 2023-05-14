@@ -1,21 +1,17 @@
-<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
-  <mat-tab label="Empresas">
-      <div class="container">
-      <button mat-raised-button color="primary" class="nova-empresa" routerLink="create/create">Adicionar Empresa</button>
-      <h1>Empresas</h1>
+<div class="container">
+  <button mat-raised-button color="primary" class="nova-empresa" routerLink="{{entidade}}/create">Adicionar {{entidade}}</button>
+      <h1>{{entidade.toUpperCase()}}</h1>
       <div class="content" *ngFor="let item of list">
           <mat-card> 
               <mat-card-header>
-                <mat-card-title>{{item.nomeFantasia}}</mat-card-title>
-                <mat-card-subtitle>CNPJ: {{item.cnpj}}</mat-card-subtitle>
+                <mat-card-title>{{item.nome}}</mat-card-title>
+                <mat-card-subtitle>Identificador: {{item.identificador}}</mat-card-subtitle>
                 <mat-card-subtitle>CEP: {{item.cep}}</mat-card-subtitle>
-                <mat-card-subtitle>Fornecedores: {{item.fornecedores}}</mat-card-subtitle>
               </mat-card-header>
               <mat-card-actions>
-                <button mat-button routerLink="update/{{item.cnpj}}">Editar</button>
-                <button mat-button (click)="delete(item.cnpj)">Deletar</button>
+                <button mat-button routerLink="{{entidade}}/update/{{item.identificador}}">Editar</button>
+                <button mat-button (click)="delete(item.identificador)">Deletar</button>
               </mat-card-actions>
             </mat-card>
       </div>
-</div></mat-tab>
-</mat-tab-group>
+</div>

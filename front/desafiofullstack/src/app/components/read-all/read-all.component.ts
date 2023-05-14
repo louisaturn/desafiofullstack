@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Empresa } from './models/empresas';
-import { EmpresasService } from 'src/app/services/empresas.ts.service';
-import { Router } from '@angular/router';
+import { EmpresasService, Entidade } from 'src/app/services/empresas.ts.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-read-all',
@@ -9,25 +9,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./read-all.component.css']
 })
 export class ReadAllComponent implements OnInit{
-  list: Empresa[] = [];
+  list: Entidade[] = [];
+  @Input() entidade: string = "";
 
-  constructor(private service: EmpresasService, private router: Router){}
+  constructor(private service: EmpresasService, private router: ActivatedRoute){}
     ngOnInit(): void {
-      this.findAll();
+    // this.router.params.subscribe( params => this.entidade = !params["entidade"]? "empresas":params["entidade"]);
+    this.findAll();
       
     }
 
     findAll(): void {
-      this.service.findAll().subscribe((resposta) => {
+      this.service.findAll(this.entidade).subscribe((resposta) => {
         this.list = resposta;
-      })
+      });
+      
     }
 
-    delete(cnpj: any):void{
-      this.service.delete(cnpj).subscribe((resposta) => {
+    delete(identificador: any):void{
+      this.service.delete(this.entidade, identificador).subscribe((resposta) => {
       if(resposta === null) {
         this.service.message("Empresa deletada com sucesso!")
-        this.list = this.list.filter(empresa => empresa.cnpj !== cnpj)
+        this.list = this.list.filter(entidade => entidade.identificador !== identificador)
       }
     })
     }

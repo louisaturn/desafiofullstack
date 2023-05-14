@@ -15,7 +15,7 @@ public class EmpresaService {
     @Autowired
     private EmpresaRepository repository;
 
-    public Empresa findById(long cnpj) {
+    public Empresa findById(String cnpj) {
         Optional<Empresa> obj = repository.findById(cnpj);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! CNPJ: " + cnpj));
     }
@@ -29,11 +29,11 @@ public class EmpresaService {
         return repository.save(empresa);
     }
 
-    public void delete(long cnpj) {
+    public void delete(String cnpj) {
         repository.deleteById(cnpj);
     }
 
-    public Empresa update(long cnpj, Empresa empresa) {
+    public Empresa update(String cnpj, Empresa empresa) {
 
         Empresa newEmpresa = findById(cnpj);
 

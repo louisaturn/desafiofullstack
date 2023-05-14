@@ -12,7 +12,7 @@ public class Empresa {
 
     private static final long serialVersionUID = 1L;
     @Id
-    private long cnpj;
+    private String cnpj;
 
     @ManyToMany
     @JoinTable(
@@ -26,7 +26,7 @@ public class Empresa {
     public Empresa(){
         super();
     }
-    public Empresa(long cnpj, String nomeFantasia, Integer cep) {
+    public Empresa(String cnpj, String nomeFantasia, Integer cep) {
         super();
         this.cnpj = cnpj;
         this.nomeFantasia = nomeFantasia;
@@ -34,11 +34,11 @@ public class Empresa {
         this.fornecedores = new HashSet<Fornecedor>();
     }
 
-    public long getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(long cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 

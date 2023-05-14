@@ -19,7 +19,33 @@
     <input [(ngModel)]="empresa.cep" name="empresa.cep" matInput type="number">
   </mat-form-field>
 
+  <br>
+  <div>
+    <h2>Fornecedores</h2>
+    <div class="content" *ngFor="let item of empresa.fornecedores">
+    <mat-card>
+      <mat-card-header><mat-card-content>
+        {{item.nome}}
+      </mat-card-content></mat-card-header>
+    </mat-card>
+    <br>
+</div></div>
+
+  <mat-form-field>
+    <mat-label></mat-label>
+    <mat-select [(ngModel)]="selectedFornecedor" name="fornecedor">
+      <ng-container *ngFor="let fornecedor of fornecedores">      
+        <mat-option *ngIf="!fornecedor.fornece" [value]="fornecedor.entidade">
+        {{fornecedor.entidade.nome}}
+      </mat-option></ng-container>
+      
+
+    </mat-select>
+  </mat-form-field>
+
   <div class="buttons">
+    <button (click)="addFornecedor()" mat-stroked-button color="accent">Adicionar Fornecedor</button>
+    <br><br>
     <button (click)="update()" mat-stroked-button color="primary">Atualizar</button>
     <button (click)="cancel()" mat-stroked-button color="warn">Cancelar</button>
   </div>
