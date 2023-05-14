@@ -16,7 +16,7 @@ Linguagem Typescript, utilizando a tecnologia Angular. Foram utilizados componen
 ## Como Executar
 ### Dependências (Links para instalá-las)
 - [Java SE 20](https://www.oracle.com/java/technologies/javase/jdk20-archive-downloads.html)
-- [Node.js](https://www.npmjs.com/package/npm)
+- [Node.js 18.16]([https://www.npmjs.com/package/npm](https://nodejs.org/en/download))
 - [Angular](https://angular.io/guide/setup-local)
 ### Execução
 1. Ir para o diretório base e executar o comando:
@@ -28,7 +28,8 @@ Linguagem Typescript, utilizando a tecnologia Angular. Foram utilizados componen
 
 - Em `http://localhost:8080/h2-console`, temos uma interface de banco de dados.
 
-2. Na pasta `/front/desafiofullstack`, executar `ng serve`. O front-end da aplicação, por padrão, será executado em `http://localhost:4200/`.
+2. Na pasta `/front`, executar `npm i`para instalar dependências.
+3. Na pasta `/front/desafiofullstack`, executar `ng serve`. O front-end da aplicação, por padrão, será executado em `http://localhost:4200/`.
 ## Screenshots
 ### Página inicial, aba Empresas
 ### Página inicial, aba Fornecedores
