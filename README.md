@@ -20,17 +20,15 @@ Linguagem Typescript, utilizando a tecnologia Angular. Foram utilizados componen
 - [Angular](https://angular.io/guide/setup-local)
 - [Maven](https://maven.apache.org/install.html)
 ### Execução
-1. Ir para o diretório base e executar o comando:
-`java -jar desafiofullstack.jar `. A aplicação será executada, por padrão, em `http://localhost:8080/`. 
-
+1. Ir para o diretório base e executar o comando: `mvn package`
+2. Executar: `java -jar target\desafiofullstack-0.0.1`
+- A aplicação será executada, por padrão, em `http://localhost:8080/`. 
 - Para acessar as empresas existentes cadastradas e todas as suas propriedades, acesse `http://localhost:8080/empresas`. 
-
 - Para fornecedores, `http://localhost:8080/fornecedores`.
-
 - Em `http://localhost:8080/h2-console`, temos uma interface de banco de dados.
 
-2. Na pasta `/front/desafiofullstack`, executar `npm i`para instalar dependências.
-3. Finalmente, em `/front/desafiofullstack`, executar `ng serve`. O front-end da aplicação, por padrão, será executado em `http://localhost:4200/`.
+3. Na pasta `/front/desafiofullstack`, executar `npm i`para instalar dependências.
+4. Finalmente, em `/front/desafiofullstack`, executar `ng serve`. O front-end da aplicação, por padrão, será executado em `http://localhost:4200/`.
 ## Screenshots
 ### Página inicial, aba Empresas
 ![Screenshot from 2023-05-14 17-19-53](https://github.com/louisaturn/desafiofullstack/assets/48096245/65b824f5-2c00-4f46-85f9-0e7074fe1af2)
