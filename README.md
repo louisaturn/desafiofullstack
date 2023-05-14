@@ -28,7 +28,7 @@ Linguagem Typescript, utilizando a tecnologia Angular. Foram utilizados componen
 
 - Em `http://localhost:8080/h2-console`, temos uma interface de banco de dados.
 
-2. Na pasta `/front`, executar `npm i`para instalar dependências.
+2. Na pasta `/front/desafiofullstack`, executar `npm i`para instalar dependências.
 3. Na pasta `/front/desafiofullstack`, executar `ng serve`. O front-end da aplicação, por padrão, será executado em `http://localhost:4200/`.
 ## Screenshots
 ### Página inicial, aba Empresas
